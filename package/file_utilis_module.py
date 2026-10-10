@@ -70,17 +70,24 @@ def append_op():
          print("Something went Wrong!!")
            
 def update_entry():
-        try:
-                name=input("Enter a File Name: ")
-                with open(name,"r") as file:
-                    see= file.readlines()
-                    search=input("Enter a keyword for see entry: ")
-                    for x in see: 
-                        if search.lower() in x.lower() :
-                              print(x)
-                              break
-                    else:
-                         print(f"no entries found for the keyword: {search}")
-        except:
-             print("Something Went Wrong")
-            
+        entry = input("Enter the word you want to replace: ")
+        update = input(f"Enter the word to replace '{entry}' with: ")
+
+        with open("data.txt", "r") as f:
+            text = f.read()
+
+
+        if entry in text:
+            text = text.replace(entry, update)
+
+            with open("data.txt", "w") as file:
+                file.write(text)
+        else:
+            print(f"No entries were found for: {entry}")
+            return
+
+
+        print("File Updated Successfully!")
+    except:
+         print("There Was An Error in Updating The File !!")
+
