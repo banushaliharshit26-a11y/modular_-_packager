@@ -44,7 +44,7 @@ def dt_operations():
                 print(f"current date {datetime.now().strftime("%Y-%m-%d")}")
 
             elif choice == 2:
-                print(f"current time {datetime.now().strptime("%H-%M-%S")}")
+                print(f"current time {datetime.now().strftime("%H-%M-%S")}")
 
             elif choice == 3:
                 print(f"current Date-time {datetime.now()}")
